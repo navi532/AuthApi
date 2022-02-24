@@ -1,0 +1,59 @@
+body{
+    background-color: #1c8df8;
+}
+form h3{
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+form{
+    height: 650px;
+    width: 80%;
+    max-width: 600px;
+    background-color: #ffffff;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: solid black;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+.name{
+    display: flex;
+    justify-content: space-between;
+}
+.pass{
+    display: flex;
+    justify-content: space-between;
+}
+
+.first{
+    margin-right: 20px;
+}
+
+.pass1{
+    margin-right: 20px;
+}
+
+.submit-block input{
+    background-color: #1c8df8;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+}

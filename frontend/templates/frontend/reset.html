@@ -1,0 +1,82 @@
+{% extends 'frontend/base.html' %}
+{%load static%}
+{%block title %}
+<title>Reset your Password | Chilltray</title>
+{%endblock %}
+{%block styles %}
+<link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+{%endblock %}
+{%block content %}
+    <form id = 'form-id' method="POST">
+        {% csrf_token %}
+        
+        <h3>Reset Password</h3>
+        <div >
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Enter email" required>
+            <p id = "email-error-message"></p>
+        </div>
+            
+        <div id = "submit">
+            <input type="submit" value="Submit">
+    </form>
+    
+
+    <script type="text/javascript">
+        const token = "{{csrf_token}}"
+
+        
+        var form = document.getElementById('form-id');
+
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+            
+
+            $.ajax({
+                type : 'POST',
+                url : '/auth/reset/',
+                data : {
+                    email:$('#email').val(),
+                    csrfmiddlewaretoken:token,
+                },
+                success : function(response){
+                    alert("Password Reset Link has been sent to you");
+                },
+                error : function(err){
+                    
+                    for(var key in err.responseJSON){
+                        $(`#${key}-` + "error-message").addClass('error-style');  
+                        $(`#${key}-` + "error-message").html(err.responseJSON[key][0]);
+                        $(`#${key}`).addClass('error-boxborder');
+                    }
+                    
+
+                    if(err.hasOwnProperty('info')){
+                        alert(err.info);
+                    }
+                },
+                beforeSend : function(){
+                    //Clear old error messages 
+                    let inputboxs = document.querySelectorAll('input');
+
+                    inputboxs.forEach(element => {
+                        element.classList.remove("error-boxborder");
+
+                    });
+
+                    let errortxts = document.querySelectorAll('p');
+
+                    errortxts.forEach(element => {
+                        if(element.classList.contains("error-style")){
+                            element.innerHTML = "";
+                            element.classList.remove("error-style");
+                        }
+                        
+                    });
+                }
+            })
+            
+        })
+        
+    </script>
+{%endblock%}

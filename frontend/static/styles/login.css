@@ -1,0 +1,68 @@
+body{
+    background-color: #1c8df8;
+}
+form{
+    height: 600px;
+    width: 70%;
+    max-width: 520px;
+    background-color: #ffffff;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #050708;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: center;
+}
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: solid black;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: grey;
+}
+input.thecheckbox {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+.submit input{
+    background-color: #1c8df8;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+}
+.moreOptions{
+    display: flex;
+    justify-content: space-between;
+}

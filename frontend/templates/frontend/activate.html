@@ -1,0 +1,29 @@
+{% extends 'frontend/base.html' %}
+{%load static%}
+{%block title %}
+<title>Activate your Account | Chilltray</title>
+{%endblock %}
+{%block styles %}
+<link rel="stylesheet" href="{% static 'styles/activate.css' %}">
+{%endblock %}
+
+{%block content %}
+<p id="info">Activating...</p>
+
+<script type="text/javascript">
+
+$.ajax({
+        type : 'GET',
+        url : '/auth/activate/{{uidb64}}/{{token}}/',
+        error : function(err){
+            alert(err.responseJSON.info);
+        },
+        success : function(response){
+            $('#info').html(response.info);
+            alert("Email Confirmed");
+        }
+    })
+
+</script>
+{%endblock%}
+
