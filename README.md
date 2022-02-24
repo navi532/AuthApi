@@ -3,9 +3,7 @@
 This project provides a set of REST API endpoints and HTML interface for registration, authentication , password reset, retrieve JWT token on successful login.
 
 
-
-
-## Run Locally
+## Get Started (Locally)
 
 Clone the project
 
@@ -53,4 +51,5 @@ To run this project, you will need to add the following environment variables to
 `EMAIL_USER` = "yourgmailid"  
 `EMAIL_PASS` = "yourpassword"  
 
-
+## API Documentation
+To learn about API Endpoints, start the server and go to `/swagger`.
