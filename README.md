@@ -13,7 +13,7 @@ Clone the project
 
 Go to the project directory.  
 ```bash
-  cd my-project
+  cd AuthApi
 ```
 Make sure `manage.py` exists in current directory. 
 
