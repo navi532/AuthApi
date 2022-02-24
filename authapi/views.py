@@ -18,6 +18,9 @@ from .models import Loginhistory,Extendeduser
 
 # Create your views here.
 class RegisterView(GenericAPIView):
+    '''
+    Registers a User, Sends Activation Link on successful registration
+    '''
     serializer_class = UserSerializer
 
     def post(self,request):
@@ -56,6 +59,12 @@ class RegisterView(GenericAPIView):
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class ActivateView(GenericAPIView):
+    '''
+    Activation of User Account
+    returns 
+        STATUS 200: If valid link and activates user account
+        STATUS 400: If invlaid link
+    '''
     
     def get(self,request,uidb64,token):
         try:
@@ -79,6 +88,10 @@ class ActivateView(GenericAPIView):
 
 
 class LoginView(GenericAPIView):
+    '''
+    Logins a User & returns JWT Token and password throttling for unsuccessful attempt
+    On 5 unsuccessful continous attempts, Account is locked.
+    '''
     serializer_class = LoginSerializer
 
     def post(self,request):
@@ -143,6 +156,9 @@ class LoginView(GenericAPIView):
         return Response({'info':'Invalid Credentials'},status = status.HTTP_401_UNAUTHORIZED)
 
 class ResetView(GenericAPIView):
+    '''
+    Sends mail to User for Password Rest
+    '''
     serializer_class = ResetSerializer
 
     def post(self,request):
@@ -177,6 +193,11 @@ class ResetView(GenericAPIView):
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class PasswordResetView(GenericAPIView):
+    '''
+    On recieving Password Reset Link User resets password
+    Link invalidated after password has been changed or after 24 hrs
+    '''
+
     serializer_class = PasswordResetSerializer
 
     def get(self,request,uidb64,token):
