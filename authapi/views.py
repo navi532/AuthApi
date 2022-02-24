@@ -1,7 +1,6 @@
 
 
 from django.utils.http import urlsafe_base64_decode,urlsafe_base64_encode
-from html5lib import serialize
 from rest_framework.generics import GenericAPIView
 from .serializers import UserSerializer,LoginSerializer,ResetSerializer,PasswordResetSerializer
 from rest_framework.response import Response
