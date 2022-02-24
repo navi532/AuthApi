@@ -51,6 +51,9 @@ coverage.xml
 .pytest_cache/
 cover/
 
+#Temporary Files
+*.swp
+
 # Translations
 *.mo
 *.pot
