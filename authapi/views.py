@@ -10,7 +10,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.conf import settings
 import jwt
 from django.core.mail import send_mail
-from django.utils.encoding import force_bytes,force_text
+from django.utils.encoding import force_bytes,force_str
 from django.contrib.auth.models import User,update_last_login
 from .tokens import account_token
 from django.urls import reverse
@@ -59,7 +59,7 @@ class ActivateView(GenericAPIView):
     
     def get(self,request,uidb64,token):
         try:
-            uid = force_text(urlsafe_base64_decode(uidb64))
+            uid = force_str(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk = uid)
         except (ValueError,OverflowError,User.DoesNotExist):
             user = None
@@ -181,7 +181,7 @@ class PasswordResetView(GenericAPIView):
 
     def get(self,request,uidb64,token):
         try:
-            uid = force_text(urlsafe_base64_decode(uidb64))
+            uid = force_str(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk = uid)
         except (ValueError,OverflowError,User.DoesNotExist):
             user = None
@@ -200,7 +200,7 @@ class PasswordResetView(GenericAPIView):
     
     def post(self,request,uidb64,token):
         try:
-            uid = force_text(urlsafe_base64_decode(uidb64))
+            uid = force_str(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk = uid)
         except (ValueError,OverflowError,User.DoesNotExist):
             user = None
