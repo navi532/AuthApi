@@ -7,7 +7,8 @@ This project provides a set of REST API endpoints and HTML interface for registr
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to your .env file. If doesn't exists, create
+`.env` file.
 
 `JWT_SECRET_KEY` = "any_randomkey_for_JWT_Token"  
 `EMAIL_USER` = "yourgmailid"  
